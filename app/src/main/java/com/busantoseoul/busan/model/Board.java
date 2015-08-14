@@ -7,6 +7,8 @@ public class Board {
     private String num;
     private String title;
     private String description;
+    private String userId;
+    private String likeCount;
     private String regDate;
 
     public void setNum(String num) {
@@ -39,5 +41,21 @@ public class Board {
 
     public String getRegDate() {
         return regDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(String likeCount) {
+        this.likeCount = likeCount;
     }
 }

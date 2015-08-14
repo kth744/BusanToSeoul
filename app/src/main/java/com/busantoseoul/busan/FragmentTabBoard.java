@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.busantoseoul.busan.adapter.BoardAdapter;
+import com.busantoseoul.busan.model.Board;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,17 +40,22 @@ public class FragmentTabBoard extends Fragment {
         return inflater.inflate(R.layout.tab_board, container, false);
     }
 
-    private List<String> boardList = new ArrayList<>();
+    private List<Board> boardList = new ArrayList<>();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         for (int i = 0; i < 20; i++) {
-            boardList.add("테스트 : " + i);
+            Board board = new Board();
+            board.setTitle("제목" + i + "입니다.");
+
+            boardList.add(board);
         }
 
+        BoardAdapter adapter = new BoardAdapter(getActivity(), R.layout.tab_board_item, boardList);
+
         ListView listView = (ListView) getActivity().findViewById(R.id.listView);
-        listView.setAdapter(new ArrayAdapter(getActivity(), R.layout.tab_board_item, boardList));
+        listView.setAdapter(adapter);
     }
 }

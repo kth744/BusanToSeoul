@@ -4,15 +4,10 @@
     android:layout_height="match_parent"
     tools:context="com.busantoseoul.busan.FragmentTabBoard">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="게시판" />
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:id="@+id/listView"
         android:layout_gravity="left|top" />
 
