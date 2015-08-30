@@ -7,8 +7,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class TabController extends AppCompatActivity {
+
+    private MyPagerAdapter pagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +22,7 @@ public class TabController extends AppCompatActivity {
 
         // Setup the viewPager
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        MyPagerAdapter pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         // Setup the Tabs
@@ -28,12 +33,16 @@ public class TabController extends AppCompatActivity {
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
 
+        private int position = 0;
+
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int pos) {
+            position = pos;
+
             switch (pos) {
 
                 case 0:
@@ -50,6 +59,10 @@ public class TabController extends AppCompatActivity {
         @Override
         public int getCount() {
             return 3;
+        }
+
+        public int getPosition() {
+            return position;
         }
 
         @Override
