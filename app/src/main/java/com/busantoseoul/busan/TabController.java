@@ -1,11 +1,14 @@
 package com.busantoseoul.busan;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.webkit.WebView;
@@ -19,6 +22,7 @@ public class TabController extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_container);
+        startActivity(new Intent(this, Splash.class));
 
         // Setup the viewPager
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -30,6 +34,30 @@ public class TabController extends AppCompatActivity {
         tabLayout.setTabsFromPagerAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle(this.getString(R.string.exit)) // 제목부분 텍스트
+                    .setMessage(this.getString(R.string.exit)) // 내용부분 텍스트
+                    .setPositiveButton(this.getString(android.R.string.yes), //승인버튼을 눌렀을때..
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    moveTaskToBack(true);
+                                    finish(); //종료
+                                }
+                            }
+                    ).setNegativeButton(this.getString(android.R.string.no), null).show(); //취소버튼을 눌렀을때..
+
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     private class MyPagerAdapter extends FragmentStatePagerAdapter {
 

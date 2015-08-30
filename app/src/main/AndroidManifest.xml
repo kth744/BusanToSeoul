@@ -10,6 +10,7 @@
         android:label="서부인"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".Splash"></activity>
         <activity android:name=".TabController"></activity>
 
     </application>

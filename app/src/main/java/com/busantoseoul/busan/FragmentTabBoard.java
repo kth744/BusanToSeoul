@@ -1,7 +1,10 @@
 package com.busantoseoul.busan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,5 +60,23 @@ public class FragmentTabBoard extends Fragment {
 
         ListView listView = (ListView) getActivity().findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        /*
+        listView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 액티비티 전환
+//                Intent intent = new Intent(getActivity(), FragmentTabBoardRead.class);
+//                intent.putExtra("text", String.valueOf(editText.getText())); // 파라메터 전달
+//                startActivity(intent);
+
+                // 프래그먼트 전환
+//                FragmentManager fm = getFragmentManager();
+//                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+//                fragmentTransaction.replace(R.id.tab_board_read, new FragmentTabBoardRead());
+//                fragmentTransaction.commit();
+            }
+        });
+        */
     }
 }

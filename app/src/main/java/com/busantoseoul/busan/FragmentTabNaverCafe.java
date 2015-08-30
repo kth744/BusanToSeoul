@@ -2,7 +2,6 @@ package com.busantoseoul.busan;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +61,7 @@ public class FragmentTabNaverCafe extends Fragment {
                         if (mWebView.canGoBack()) {
                             mWebView.goBack();
                         } else {
-                            getActivity().finish();
+                            getActivity().onKeyDown(keyCode, event);
                         }
                     }
                     return true;

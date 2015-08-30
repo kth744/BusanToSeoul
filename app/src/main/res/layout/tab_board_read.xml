@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tab_board_read">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="게시글 제목"
+        android:id="@+id/BoardTitleView"
+        android:layout_gravity="left|top" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="게시글 내용 dddddddlak jdlkasj dlkasjdlkasj dlkajsd klasjd lkasjd lkasj dlkadjlakdj klasdj alkdj lkajd lkasjd lkajd lkasj dlkasjd lkajsd lkajsd lkasjd laksjd lkasjd klajd lkajd lkasjd lkasj dlkasj dlkasjd lkasj dlkasjd lkasj dlaksjd lkasjd lkasjd lkasdj lkasdj lkasdj lkasj dlajsd laksdj lkadj lkasdj lkasdj klasjd lkadj klasjd lkasdj laksdj alksdj aslkdj  dddadasd asd klasdjaksdj aklsdja slkdjaslkdj aslkdjalksdj askldjaslkjdkasl djlkasdj lkasjdlaksjd lkajsdklasj dlkasjdlkasj dlkajd lkaj sdlkasjdlkasjd lkajsdlkasdjaklsjd lkajsd lkasjdlka djlkasjd laskdjalksdjlaksdj lakdj laksdjlkasdj lkasdj lkajd lkajdl kasjdlka sdjalskdj laskjd lakjdlaksdj lkasdj lkasdj lkasdj sdasd"
+        android:id="@+id/BoardContentView"
+        android:layout_gravity="left|top" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_gravity="center_horizontal|bottom" />
+
+</FrameLayout>
