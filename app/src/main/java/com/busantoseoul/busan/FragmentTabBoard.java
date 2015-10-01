@@ -3,12 +3,10 @@ package com.busantoseoul.busan;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.busantoseoul.busan.adapter.BoardAdapter;
@@ -56,10 +54,21 @@ public class FragmentTabBoard extends Fragment {
             boardList.add(board);
         }
 
-        BoardAdapter adapter = new BoardAdapter(getActivity(), R.layout.tab_board_item, boardList);
+        final BoardAdapter adapter = new BoardAdapter(getActivity(), R.layout.tab_board_item, boardList);
 
         ListView listView = (ListView) getActivity().findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Board board = adapter.getItem(position);
+
+                Intent intent = new Intent(getActivity(), FragmentTabBoardRead.class);
+                intent.putExtra("text", String.valueOf(board.getTitle()));
+                startActivity(intent);
+            }
+        });
 
         /*
         listView.setOnClickListener(new View.OnClickListener() {
