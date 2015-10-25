@@ -2,6 +2,7 @@ package com.busantoseoul.busan;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 /**
  * Created by NAVER on 2015-08-30.
@@ -12,7 +13,7 @@ public class FragmentTabBoardRead extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_board_read);
 
-//        TextView textView = (TextView)findViewById(R.id.BoardTitleView);
-//        textView.setText(savedInstanceState.getString("text"));
+        TextView textView = (TextView)findViewById(R.id.BoardTitleView);
+        textView.setText(getIntent().getExtras().getString("text"));
     }
 }

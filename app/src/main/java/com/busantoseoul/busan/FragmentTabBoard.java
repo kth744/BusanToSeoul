@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.busantoseoul.busan.adapter.BoardAdapter;
+import com.busantoseoul.busan.board.RegistBoard;
 import com.busantoseoul.busan.model.Board;
 
 import java.util.ArrayList;
@@ -65,10 +67,27 @@ public class FragmentTabBoard extends Fragment {
                 Board board = adapter.getItem(position);
 
                 Intent intent = new Intent(getActivity(), FragmentTabBoardRead.class);
-                intent.putExtra("text", String.valueOf(board.getTitle()));
+
+                Bundle bundle = new Bundle();
+                bundle.putString("text", board.getTitle());
+
+                intent.putExtras(bundle);
+//                intent.putExtra("text", String.valueOf(board.getTitle()));
                 startActivity(intent);
             }
         });
+
+        Button registBtn = (Button) getActivity().findViewById(R.id.regist_btn);
+        registBtn.setOnClickListener(new View.OnClickListener() {
+             @Override
+            public void onClick(View v) {
+                   Intent intent = new Intent(getActivity().getApplicationContext(), RegistBoard.class);
+                 startActivity(intent);
+                }
+             }
+        );
+
+
 
         /*
         listView.setOnClickListener(new View.OnClickListener() {

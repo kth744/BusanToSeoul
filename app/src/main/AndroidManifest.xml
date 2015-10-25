@@ -13,6 +13,7 @@
         <activity android:name=".Splash"></activity>
         <activity android:name=".TabController"></activity>
         <activity android:name=".FragmentTabBoardRead"></activity>
+        <activity android:name=".board.RegistBoard"></activity>
 
     </application>
 
